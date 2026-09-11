@@ -1,6 +1,22 @@
 import { useState } from "react";
 import "./App.css";
 
+// Cookie clicker
+
+const cookiecounter = () => {
+  const [count, setCount] = useState(0);
+  const ToggleButton = () => {
+    const [isOn, setIsOn] = useState(false);
+  };
+
+  return (
+    <div>
+      <h1>Teller: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Click</button>
+    </div>
+  );
+};
+
 //Cat API thingie
 function App() {
   const [data, setData] = useState(null);
