@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 // Cookie clicker
@@ -10,17 +10,15 @@ const CookieClicker = () => {
     <div>
       <h1>Cookies: {count}</h1>
       <img
-        src={isClicked ? "./COOKIE_DOWN.png" : "./COOKIE_UP.png"}
+        src={isClicked ? "/COOKIE_DOWN.png" : "/COOKIE_UP.png"}
         onMouseDown={() => setIsClicked(true)}
         onMouseUp={() => setIsClicked(false)}
-        onClick={() => setCount(count + 1)}
+        onClick={() => setCount((prev) => prev + 1)}
         alt="Cookie button"
       />
     </div>
   );
 };
-
-CookieClicker();
 
 //Cat API thingie
 function App() {
@@ -57,19 +55,21 @@ function App() {
 
   // Return
   return (
-    <>
-      {/* If loading */}
+    <div style={{ padding: "20px" }}>
+      {CookieClicker}
       {loading && <h1>Loading...</h1>}
-      {/* If errors */}
-      {error && <h2 style={{ color: "red" }}>Error: {error.message}</h2>}
-      {/* Append data */}
-      data && (
-      <div>
-        <h2>{data.title}</h2>
-        <p>Post id: {data.id}</p>
-      </div>
-      )
-    </>
+      {error && <h2 style={{ color: "red" }}>Error: {error}</h2>}
+      {data && data.data && (
+        <div>
+          <h2>Cat Facts:</h2>
+          <ul>
+            {data.data.map((fact, index) => (
+              <li key={index}>{fact.fact}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }
 // Export function
