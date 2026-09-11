@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import confetti from "canvas-confetti";
+import * as confetti from "canvas-confetti";
 
 // Cookie clicker
 const CookieClicker = ({ size = "150px" }) => {
@@ -11,28 +11,35 @@ const CookieClicker = ({ size = "150px" }) => {
   const handleCookie = () => {
     setCount((prev) => {
       const nextCount = prev + 1;
+
       if (nextCount === 100) {
         triggerCelebration();
       }
+
       return nextCount;
     });
   };
 
   // Confetti logic
   const triggerCelebration = () => {
-    // Left side
-    ({
-      particleCount: 150,
-      spread: 80,
-      origin: { x: 0.2, y: 0.6 },
-    })(
-      // Right side
-      {
+    try {
+      // Left side
+      confetti.default({
         particleCount: 150,
         spread: 80,
-        origin: { x: 0.8, y: 0.6 },
-      },
-    );
+        origin: { x: 0.2, y: 0.6 },
+      });
+      confetti.default(
+        // Right side
+        {
+          particleCount: 150,
+          spread: 80,
+          origin: { x: 0.8, y: 0.6 },
+        },
+      );
+    } catch (err) {
+      console.log("Confetti animation failed: ", err);
+    }
   };
 
   return (
