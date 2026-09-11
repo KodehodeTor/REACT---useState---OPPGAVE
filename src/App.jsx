@@ -2,20 +2,25 @@ import { useState } from "react";
 import "./App.css";
 
 // Cookie clicker
-
-const cookiecounter = () => {
+const CookieClicker = () => {
   const [count, setCount] = useState(0);
-  const ToggleButton = () => {
-    const [isOn, setIsOn] = useState(false);
-  };
+  const [isClicked, setIsClicked] = useState(false);
 
   return (
     <div>
-      <h1>Teller: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <h1>Cookies: {count}</h1>
+      <img
+        src={isClicked ? "./COOKIE_DOWN.png" : "./COOKIE_UP.png"}
+        onMouseDown={() => setIsClicked(true)}
+        onMouseUp={() => setIsClicked(false)}
+        onClick={() => setCount(count + 1)}
+        alt="Cookie button"
+      />
     </div>
   );
 };
+
+CookieClicker();
 
 //Cat API thingie
 function App() {
