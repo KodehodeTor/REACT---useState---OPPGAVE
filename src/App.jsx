@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 // Cookie clicker
-const CookieClicker = () => {
+const CookieClicker = ({ size = "150px" }) => {
   const [count, setCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -15,6 +15,7 @@ const CookieClicker = () => {
         onMouseUp={() => setIsClicked(false)}
         onClick={() => setCount((prev) => prev + 1)}
         alt="Cookie button"
+        style={{ cursor: "pointer", width: size, height: "auto" }}
       />
     </div>
   );
@@ -56,7 +57,7 @@ function App() {
   // Return
   return (
     <div style={{ padding: "20px" }}>
-      {CookieClicker}
+      <CookieClicker />
       {loading && <h1>Loading...</h1>}
       {error && <h2 style={{ color: "red" }}>Error: {error}</h2>}
       {data && data.data && (
