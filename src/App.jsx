@@ -1,21 +1,59 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import confetti from "canvas-confetti";
 
 // Cookie clicker
 const CookieClicker = ({ size = "150px" }) => {
   const [count, setCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
+  // Handler for 100 clicks:
+  const handleCookie = () => {
+    setCount((prev) => {
+      const nextCount = prev + 1;
+      if (nextCount === 100) {
+        triggerCelebration();
+      }
+      return nextCount;
+    });
+  };
+
+  // Confetti logic
+  const triggerCelebration = () => {
+    // Left side
+    ({
+      particleCount: 150,
+      spread: 80,
+      origin: { x: 0.2, y: 0.6 },
+    })(
+      // Right side
+      {
+        particleCount: 150,
+        spread: 80,
+        origin: { x: 0.8, y: 0.6 },
+      },
+    );
+  };
+
   return (
     <div>
-      <h1>Cookies: {count}</h1>
+      <h1 style={{ color: count >= 100 ? "#ffcc00" : "inherit" }}>
+        {/* When hitting 100= GZ */}
+        Cookies: {count} {count >= 100 && "🎉 GZ!"}
+      </h1>
       <img
         src={isClicked ? "/COOKIE_DOWN.png" : "/COOKIE_UP.png"}
         onMouseDown={() => setIsClicked(true)}
         onMouseUp={() => setIsClicked(false)}
-        onClick={() => setCount((prev) => prev + 1)}
+        onClick={handleCookie}
         alt="Cookie button"
-        style={{ cursor: "pointer", width: size, height: "auto" }}
+        style={{
+          cursor: "pointer",
+          width: size,
+          height: "auto",
+          transition: "transform 0.1s ease",
+          transform: isClicked ? "scale (0.95)" : "scale(1)",
+        }}
       />
     </div>
   );
