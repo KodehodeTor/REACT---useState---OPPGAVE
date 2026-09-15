@@ -68,7 +68,7 @@ const CookieClicker = ({ size = "150px" }) => {
 
 //Cat API thingie
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
@@ -85,7 +85,7 @@ function App() {
         }
         // pauses until the data is requested fully and converted to JS
         const result = await response.json();
-        setData(result);
+        setData(result.data);
       } catch (err) {
         // Catch errors
         setError(err.message);
@@ -105,12 +105,12 @@ function App() {
       <CookieClicker />
       {loading && <h1>Loading...</h1>}
       {error && <h2 style={{ color: "red" }}>Error: {error}</h2>}
-      {data && data.data && (
+      {data.length > 0 && (
         <div>
-          <h2>Cat Facts:</h2>
+          <h2>Cat Fact:</h2>
           <ul>
-            {data.data.map((fact, index) => (
-              <li key={index}>{fact.fact}</li>
+            {data.map((catfact, index) => (
+              <li key={index}>{catfact.fact}</li>
             ))}
           </ul>
         </div>
