@@ -65,7 +65,7 @@ const CookieClicker = ({ size = "150px" }) => {
   );
 };
 
-//Cat API thingie
+//Cat  thingie
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(null);
@@ -76,7 +76,7 @@ function App() {
       setLoading(true);
       setError(null);
       try {
-        // Fetch API
+        // Fetch facts
         const response = await fetch("https://catfact.ninja/facts?limit=5");
         // If response is not OK throw error message
         if (!response.ok) {
