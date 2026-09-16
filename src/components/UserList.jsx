@@ -1,9 +1,6 @@
 import { mockData } from "../data/mockData.js";
 import { useState } from "react";
 
-export function UserList() {
-  const [];
-}
 
 // export const mockData = [
 //   { username: "Ola Normann", email: "ola.normann@norge.no" },
@@ -12,40 +9,51 @@ export function UserList() {
 //   { username: "Sander", email: "sander@kodehode.no" },
 // ];
 
-// Psuedo code for list
 
-// <input type=txt value=username onchange={(e) => setUsername(e.target.value)} />
-//
-// const newUser = {info}
-//
-//  setUser ((prev) => [...prev] somethingsomething)
-//
-// {user.map((user) => ( div p username /p p email /p div ))}
-//
-// Date.now
-//
-// const userList = () => {
-// const [user, setUser] = useState ([])
-// const [username, setUsername] = useState ("")
-// const [email, setEmail] = useState("")
-//
-// const addUser = () => {
-//
-// create new user
-//
-// add new user
-//
-// Clear username and email input
+export default function UserList() {
+    const [user, setUser] = useState(mockData)
+    const [username, setUsername] = useState ("")
+    const [email, setEmail] = useState ("")
 
-// return (
-//   <div>
-//     {/* username input */}
-//     {/* email input */}
-//     <button onClick={addUser}>Add User</button>
-//     {/* .map(user) */}
-//   </div>
-// )
+    const handleAddUser = (e) => {
+        // Handles submitting
+        e.preventDefault();
+        if (!username || !email) return;
 
-// export default userList
+        // Creates a new user object
+        const newUser = { username, email };
 
-// type → setUsername / setEmail → click → create object → setUsers → React rerenders → .map() displays updated array
+        // Update state using spread 
+        setUsers([...users, newUser]);
+
+        // Clear input fields:
+        setUsername("");
+        setEmail("");
+
+
+        return (
+            <div style= {{padding: "1.5rem"}}>
+                {/* Add user form */}
+                <form onSubmit={handleAddUser} style={{marginBottom: "2rem"}}>
+                <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>                
+                {/* Email input */}
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <button type="submit">Add users</button>
+                </form> 
+                {/* Render list */}
+                <ul>
+                    {user.map((item, index) => (
+                        <li key={index}>
+                            {/* Strong = important! */}
+                            <strong>{item.username}</strong> {item.email}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        )
+    }
+  }
+
+
+
+/
