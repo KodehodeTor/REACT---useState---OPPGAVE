@@ -6,7 +6,7 @@ export const CookieClicker = ({ size = "150px" }) => {
   const [count, setCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
-  // Handler for 100 clicks:
+  // Handler for 50 clicks:
   const handleCookie = () => {
     // Previous state + 1, if 50 trigger Celebration.
     setCount((prev) => {
@@ -46,7 +46,7 @@ export const CookieClicker = ({ size = "150px" }) => {
   return (
     <div>
       <h1 style={{ color: count >= 50 ? "#ffcc00" : "inherit" }}>
-        {/* When hitting 100= GZ */}
+        {/* When hitting 50= GZ */}
         Cookies: {count} {count >= 50 && "🎉 GZ!"}
       </h1>
       {/* Logic for cookie clicker image. */}
