@@ -11,7 +11,7 @@ const CookieClicker = ({ size = "150px" }) => {
     setCount((prev) => {
       const nextCount = prev + 1;
 
-      if (nextCount === 100) {
+      if (nextCount === 50) {
         triggerCelebration();
       }
 
@@ -43,9 +43,9 @@ const CookieClicker = ({ size = "150px" }) => {
 
   return (
     <div>
-      <h1 style={{ color: count >= 100 ? "#ffcc00" : "inherit" }}>
+      <h1 style={{ color: count >= 50 ? "#ffcc00" : "inherit" }}>
         {/* When hitting 100= GZ */}
-        Cookies: {count} {count >= 100 && "🎉 GZ!"}
+        Cookies: {count} {count >= 50 && "🎉 GZ!"}
       </h1>
       <img
         src={isClicked ? "/COOKIE_DOWN.png" : "/COOKIE_UP.png"}
@@ -61,7 +61,7 @@ const CookieClicker = ({ size = "150px" }) => {
           transform: isClicked ? "scale (0.95)" : "scale(1)",
         }}
       />
-      <p style={{ fontSize: "9px" }}>psst! click me 100 times</p>
+      <p style={{ fontSize: "9px" }}>psst! click me 50 times</p>
       <br />
       <br />
       <br />
@@ -159,3 +159,5 @@ export default App;
 // )
 
 // export default userList
+
+// type → setUsername / setEmail → click → create object → setUsers → React rerenders → .map() displays updated array
