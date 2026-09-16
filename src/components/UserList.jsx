@@ -2,6 +2,7 @@ import { mockData } from "../data/mockData.js";
 import { useState } from "react";
 
 export default function UserList() {
+  // useState memory basis.
   const [users, setUsers] = useState(mockData);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

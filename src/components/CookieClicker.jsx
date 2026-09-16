@@ -64,7 +64,7 @@ export const CookieClicker = ({ size = "150px" }) => {
           transform: isClicked ? "scale (0.95)" : "scale(1)",
         }}
       />
-      {/* hint for clicker celebration */}
+      {/* hint for clicker celebration and break to seperate from the userList*/}
       <p style={{ fontSize: "9px" }}>psst! click me 50 times</p>
       <br />
       <br />
