@@ -123,3 +123,39 @@ function App() {
 }
 // Export function
 export default App;
+
+// Psuedo code for list
+
+// <input type=txt value=username onchange={(e) => setUsername(e.target.value)} />
+//
+// const newUser = {info}
+//
+//  setUser ((prev) => [...prev] somethingsomething)
+//
+// {user.map((user) => ( div p username /p p email /p div ))}
+//
+// Date.now
+//
+// const userList = () => {
+// const [user, setUser] = useState ([])
+// const [username, setUsername] = useState ("")
+// const [email, setEmail] = useState("")
+//
+// const addUser = () => {
+//
+// create new user
+//
+// add new user
+//
+// Clear username and email input
+
+// return (
+//   <div>
+//     {/* username input */}
+//     {/* email input */}
+//     <button onClick={addUser}>Add User</button>
+//     {/* .map(user) */}
+//   </div>
+// )
+
+// export default userList
