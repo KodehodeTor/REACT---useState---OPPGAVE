@@ -1,3 +1,5 @@
+/* REACT Standards */
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -108,4 +110,20 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* Cat list styling */
+.cat_list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.cat_list li {
+  padding: 0.5rem 0;
+  font-family: sans-serif;
+}
+
+.cat_list li::marker {
+  content: "🐱";
+  font-size: 1.2rem;
 }

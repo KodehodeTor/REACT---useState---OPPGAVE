@@ -61,6 +61,10 @@ const CookieClicker = ({ size = "150px" }) => {
           transform: isClicked ? "scale (0.95)" : "scale(1)",
         }}
       />
+      <p style={{ fontSize: "9px" }}>psst! click me 100 times</p>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
@@ -106,8 +110,8 @@ function App() {
       {error && <h2 style={{ color: "red" }}>Error: {error}</h2>}
       {data.length > 0 && (
         <div>
-          <h2>Cat Fact:</h2>
-          <ul>
+          <h2>🐈Cat Fact:</h2>
+          <ul className="cat_list">
             {data.map((catfact, index) => (
               <li key={index}>{catfact.fact}</li>
             ))}
