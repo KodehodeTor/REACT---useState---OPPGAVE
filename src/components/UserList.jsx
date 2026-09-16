@@ -9,9 +9,10 @@ export default function UserList() {
   const handleAddUser = (e) => {
     // Handles submitting
     e.preventDefault();
+    // Checks if username or email is empty
     if (!username || !email) return;
 
-    // Creates a new user object
+    // Creates a new user object if both username and email exists.
     const newUser = { username, email };
 
     // Update state using spread

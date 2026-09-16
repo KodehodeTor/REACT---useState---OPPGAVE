@@ -36,13 +36,19 @@ export function CatFact() {
   // Return
   return (
     <div style={{ padding: "20px" }}>
+      {/* Loading ... rendering */}
       {loading && <h1>Loading...</h1>}
+      {/* Error rendering */}
       {error && <h2 style={{ color: "red" }}>Error: {error}</h2>}
+      {/* Only show list if there is data to display */}
       {data.length > 0 && (
         <div>
+          {/* Render cat fact list */}
           <h2>🐈Cat Fact:</h2>
           <ul className="cat_list">
+            {/* Loop through catfact array, arrow function for fact and index number */}
             {data.map((catfact, index) => (
+              // Shows text string from object and places it in a list order.
               <li key={index}>{catfact.fact}</li>
             ))}
           </ul>

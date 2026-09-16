@@ -8,6 +8,7 @@ export const CookieClicker = ({ size = "150px" }) => {
 
   // Handler for 100 clicks:
   const handleCookie = () => {
+    // Previous state + 1, if 50 trigger Celebration.
     setCount((prev) => {
       const nextCount = prev + 1;
 
@@ -36,6 +37,7 @@ export const CookieClicker = ({ size = "150px" }) => {
           origin: { x: 0.8, y: 0.6 },
         },
       );
+      //   Catches error
     } catch (err) {
       console.log("Confetti animation failed: ", err);
     }
@@ -47,6 +49,7 @@ export const CookieClicker = ({ size = "150px" }) => {
         {/* When hitting 100= GZ */}
         Cookies: {count} {count >= 50 && "🎉 GZ!"}
       </h1>
+      {/* Logic for cookie clicker image. */}
       <img
         src={isClicked ? "/COOKIE_DOWN.png" : "/COOKIE_UP.png"}
         onMouseDown={() => setIsClicked(true)}
@@ -61,6 +64,7 @@ export const CookieClicker = ({ size = "150px" }) => {
           transform: isClicked ? "scale (0.95)" : "scale(1)",
         }}
       />
+      {/* hint for clicker celebration */}
       <p style={{ fontSize: "9px" }}>psst! click me 50 times</p>
       <br />
       <br />
