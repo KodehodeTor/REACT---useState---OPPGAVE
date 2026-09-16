@@ -1,5 +1,8 @@
-function CatFact() {
-const [data, setData] = useState([]);
+import { useState } from "react";
+import { useEffect } from "react";
+
+export function CatFact() {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
@@ -33,7 +36,6 @@ const [data, setData] = useState([]);
   // Return
   return (
     <div style={{ padding: "20px" }}>
-      <CookieClicker />
       {loading && <h1>Loading...</h1>}
       {error && <h2 style={{ color: "red" }}>Error: {error}</h2>}
       {data.length > 0 && (
@@ -48,5 +50,4 @@ const [data, setData] = useState([]);
       )}
     </div>
   );
-}
 }

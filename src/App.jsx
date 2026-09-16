@@ -1,7 +1,15 @@
-import { useState, useEffect } from "react";
-import * as confetti from "canvas-confetti";
+import { CatFact } from "./components/CatFacts.jsx";
+import { CookieClicker } from "./components/CookieClicker.jsx";
 
-//Cat  thingie
-function App() {}
+// Main App
+function App() {
+  return (
+    <div style={{ padding: "1rem" }}>
+      <CookieClicker />
+      <CatFact />
+      <mockData />
+    </div>
+  );
+}
 // Export function
 export default App;

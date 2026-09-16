@@ -1,5 +1,8 @@
+import * as confetti from "canvas-confetti";
+import { useState } from "react";
+
 // Cookie clicker
-const CookieClicker = ({ size = "150px" }) => {
+export const CookieClicker = ({ size = "150px" }) => {
   const [count, setCount] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
