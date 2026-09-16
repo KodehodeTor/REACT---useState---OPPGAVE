@@ -8,7 +8,7 @@ function App() {
     <div style={{ padding: "1rem" }}>
       <CookieClicker />
       <CatFact />
-      {/* <UserList /> */}
+      <UserList />
     </div>
   );
 }
